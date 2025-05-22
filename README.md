@@ -47,8 +47,8 @@ Crie uma aplicação PHP simples para **gestão de postagens** com as seguintes 
 
 ## 📌 Instruções
 
-1. Faça um **fork** ou clone do repositório (ou crie um repositório público no GitHub/GitLab).
-2. Monte o ambiente local com Docker + Docker Compose.
+1. Faça um **fork** ou clone do repositório (ou crie um repositório público no GitHub/GitLab).✅  
+2. Monte o ambiente local com Docker + Docker Compose.✅  
 3. Implemente o CRUD de tarefas com os campos:
 - Usuario (nome, email, senha)
 - Postagem (titulo, conteudo, usuario_id)
