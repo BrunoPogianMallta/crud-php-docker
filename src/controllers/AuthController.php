@@ -8,7 +8,7 @@ class AuthController {
     public function __construct($db) {
         $this->db = $db;
     }
-
+    //método para registrar o usuário
     public function register() {
         $input = json_decode(file_get_contents('php://input'), true);
 
@@ -37,4 +37,37 @@ class AuthController {
             echo json_encode(['error' => 'Erro ao cadastrar usuário.']);
         }
     }
+
+    //método de login de usuário
+    public function login() {
+    $input = json_decode(file_get_contents('php://input'), true);
+
+    $email = $input['email'] ?? '';
+    $password = $input['password'] ?? '';
+
+    if (!$email || !$password) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Email e senha são obrigatórios.']);
+        return;
+    }
+
+    $userModel = new User($this->db);
+    $user = $userModel->findByEmail($email);
+
+    if (!$user || !password_verify($password, $user['password'])) {
+        http_response_code(401);
+        echo json_encode(['error' => 'Credenciais inválidas.']);
+        return;
+    }
+
+    echo json_encode([
+        'success' => 'Login realizado com sucesso.!',
+        'user' => [
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'email' => $user['email']
+        ]
+    ]);
+}
+
 }
