@@ -18,9 +18,21 @@ class Router
     public function dispatch($requestUri, $requestMethod)
     {
         foreach ($this->routes as $route) {
-            if ($route['method'] === $requestMethod && $route['path'] === $requestUri) {
+            if ($route['method'] !== $requestMethod) {
+                continue;
+            }
+
+            // Transforma rota com {param} em regex: ex /posts/{id} => ^/posts/([\w-]+)$
+            $pattern = preg_replace('#\{[\w]+\}#', '([\w-]+)', $route['path']);
+            $pattern = "#^" . $pattern . "$#";
+
+            if (preg_match($pattern, $requestUri, $matches)) {
+                array_shift($matches); // Remove o match completo
+
                 $controller = new $route['controller']($this->db);
-                return $controller->{$route['action']}();
+
+                // Passa os parâmetros capturados como argumentos
+                return call_user_func_array([$controller, $route['action']], $matches);
             }
         }
 
