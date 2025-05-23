@@ -3,12 +3,12 @@ version: '3.8'
 services:
   php:
     build: .
-    container_name: php_app
     ports:
       - "8080:80"
     volumes:
       - ./src:/var/www/html
-      - ./vendor:/var/www/vendor  
+      - ./vendor:/var/www/vendor  # Mapeia a pasta vendor
+      - ./public:/var/www/public
     depends_on:
       - db
 

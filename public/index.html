@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Gestão de Postagens</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="auth-section" class="section">
+            <div class="auth-forms">
+                <div class="form-container">
+                    <h2>Login</h2>
+                    <form id="login-form">
+                        <input type="email" id="login-email" placeholder="Email" required>
+                        <input type="password" id="login-password" placeholder="Senha" required>
+                        <button type="submit">Entrar</button>
+                    </form>
+                </div>
+                
+                <div class="form-container">
+                    <h2>Registrar</h2>
+                    <form id="register-form">
+                        <input type="text" id="register-name" placeholder="Nome" required>
+                        <input type="email" id="register-email" placeholder="Email" required>
+                        <input type="password" id="register-password" placeholder="Senha" required>
+                        <button type="submit">Criar Conta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+      
+        <div id="posts-section" class="section" style="display: none;">
+            <header>
+                <h1>Minhas Postagens</h1>
+                <button id="logout-btn">Sair</button>
+            </header>
+
+            <div class="post-actions">
+                <button id="create-post-btn">Nova Postagem</button>
+            </div>
+
+            <div id="post-form-container" style="display: none;">
+                <form id="post-form">
+                    <input type="hidden" id="post-id">
+                    <input type="text" id="post-title" placeholder="Título" required>
+                    <textarea id="post-content" placeholder="Conteúdo" required></textarea>
+                    <div class="form-buttons">
+                        <button type="submit">Salvar</button>
+                        <button type="button" id="cancel-post-btn">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+          
+            <div id="posts-list"></div>
+        </div>
+    </div>
+
+<script src="assets/js/pi.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/posts.js"></script>
+</body>
+</html>

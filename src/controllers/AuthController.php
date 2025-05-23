@@ -13,7 +13,7 @@ class AuthController {
         $this->db = $db;
     }
 
-    //register
+    //registera
     public function register() {
         $input = json_decode(file_get_contents('php://input'), true);
 
