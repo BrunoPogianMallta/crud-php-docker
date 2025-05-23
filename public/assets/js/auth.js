@@ -202,3 +202,20 @@ document.addEventListener('DOMContentLoaded', () => {
         refreshBtn.addEventListener('click', window.loadPosts);
     }
 });
+
+const createPostBtn = document.getElementById('create-post-btn');
+if (createPostBtn) {
+    createPostBtn.addEventListener('click', () => {
+        document.getElementById('post-id').value = ''; // resetar ID
+        document.getElementById('post-title').value = '';
+        document.getElementById('post-content').value = '';
+        document.getElementById('post-form-container').style.display = 'block';
+    });
+}
+
+const cancelPostBtn = document.getElementById('cancel-post-btn');
+if (cancelPostBtn) {
+    cancelPostBtn.addEventListener('click', () => {
+        document.getElementById('post-form-container').style.display = 'none';
+    });
+}
