@@ -1,5 +1,8 @@
 # API Blog - PHP com JWT
 
+Para ter acesso ao front pode-se usar o live server após o container estiver up
+acessando o index.html
+
 ## Endpoints
 
 ### POST /register

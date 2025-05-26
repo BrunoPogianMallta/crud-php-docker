@@ -1,5 +1,6 @@
 # 🧪 Teste Técnico – Desenvolvedor PHP Júnior
 
+
 ## 🎯 Objetivo
 
 Avaliar os conhecimentos técnicos fundamentais de PHP (incluindo PHP puro, sem o uso de frameworks), organização de código, lógica de programação, uso de Docker e habilidades básicas com banco de dados. O conhecimento em frameworks como Laravel ou outros será considerado um diferencial.
